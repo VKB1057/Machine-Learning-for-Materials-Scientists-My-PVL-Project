@@ -1,0 +1,57 @@
+Exercise 01 — PCA and Regression on Binary Phase Images
+
+Overview
+This project explores dimensionality reduction and regression modeling on a dataset of binary microstructure images. The goal is to predict the white-phase area fraction of each image using Principal Component Analysis (PCA) and regression models (linear and polynomial).
+
+Objectives
+- Compute the area fraction of the white phase in each image.
+- Apply PCA to reduce the 4096-dimensional image space.
+- Reconstruct images and analyze reconstruction MSE vs number of components.
+- Train linear and polynomial regression models to predict area fractions from PCA features.
+- Evaluate model performance with Mean Squared Error (MSE).
+
+Dataset
+- 500 grayscale binary-phase images (64 × 64 px).
+- Each image flattened into a 4096-element vector.
+- Target → white-phase area fraction.
+
+Implementation Workflow
+1. Preprocessing – Load images → normalize → compute area fractions → CSV export.
+2. PCA Reduction – Extract principal components using sklearn.decomposition.PCA.
+3. Reconstruction Loss Analysis – Plot MSE vs number of components to find tolerance threshold.
+4. Regression Modeling – Train linear and polynomial regressors on PCA features.
+5. Evaluation – Compute and plot prediction MSE vs components and polynomial order.
+
+Results Summary
+- Optimal PCA components: ≈ 10–20 (retaining most variance with low MSE).
+- Moderate polynomial degree improved fit without overfitting.
+- Linear regression showed stable performance with low variance.
+- Provided quantitative understanding of feature compression vs accuracy.
+
+Key Learnings
+- PCA effectively captures dominant morphological patterns in microstructures.
+- Regression models link latent features to physical properties (area fraction).
+- Built foundational skills in data preprocessing, feature reduction, and model evaluation.
+
+Tools & Libraries
+Python 3.x, NumPy, Pandas, Matplotlib, Scikit-learn, glob, os
+
+Repository Structure
+images/                     # Raw binary phase images
+area_fractions.csv          # Computed area fractions
+pca_regression.ipynb        # Main Jupyter notebook
+results/                    # Plots and CSV outputs
+  ├── mse_reconstruction.png
+  └── regression_mse_vs_components.png
+README.txt
+
+Example Plots
+- Reconstruction MSE vs # PCA components
+- Regression MSE vs polynomial degree
+- Example original vs PCA-reconstructed images
+
+Author
+Vigneshwara Koka Balaji
+M.Sc. Computational Materials Science, TU Bergakademie Freiberg
+Email: vigneshwaraofficial@gmail.com
+LinkedIn: https://www.linkedin.com/in/vigneshwarakb
